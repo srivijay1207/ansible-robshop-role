@@ -17,6 +17,6 @@
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
 - name: restart mongod
-  amsible.builtin.service:
+  ansible.builtin.service:
     name: mongod
     state: restarted

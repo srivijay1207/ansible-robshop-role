@@ -16,7 +16,7 @@
     path: /etc/mongod.conf
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
-- name: restart mongodb-org
+- name: restart mongod
   amsible.builtin.service:
-    name: mongodb-org
+    name: mongod
     state: restarted

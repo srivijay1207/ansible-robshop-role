@@ -1,0 +1,13 @@
+- name: copy from mongo repo
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+- name: install mongodb-org
+  ansible.builtin.yum:
+    name: mongodb-org
+    state: installed
+- name: start mongodb-org enable
+  ansible.builtin.service:
+    name: mongodb-org
+    state: started
+    enabled: yes

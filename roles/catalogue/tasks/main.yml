@@ -1,0 +1,26 @@
+- name: setup NPM source
+  ansible.builtin.shell: "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"
+
+- name: Install NodeJS
+  ansible.builtin.yum:
+    name: nodejs
+    state: installed
+- name: add user 
+  ansible.builtin.user:
+    name: roboshop
+- name: make a directory
+  ansible.builtin.file:
+    path: /app
+- name: download 
+  ansible.builtin.get_url:
+    url: "https://roboshop-builds.s3.amazonaws.com/catalogue.zip"
+    dest: /tmp
+
+- name: umarchive 
+  ansible.builtin.unarchive:
+    src: /tmp/catalogue.zip
+    dest: /app
+    remote_src: yes
+- name: npm install
+  ansible.builtin,command: npm install
+        

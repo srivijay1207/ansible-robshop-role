@@ -9,7 +9,7 @@
 - name: start & enblae mongodb-org
   ansible.builtin.service:
     name: mongodb-org
-    state: present
+    state: started
     enabled: yes
 - name: Replace 
   ansible.builtin.replace:
